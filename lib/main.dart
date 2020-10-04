@@ -20,7 +20,27 @@ class _SWMainState extends State<SWMain> {
       home: Scaffold(
         appBar: AppBar(
           title: customSearchBar,
-          actions: <Widget>[IconButton(icon: customIcon, onPressed: () {})],
+          actions: <Widget>[
+            IconButton(
+                icon: customIcon,
+                onPressed: () {
+                  setState(() {
+                    if (this.customIcon.icon == Icons.search) {
+                      this.customIcon = Icon(Icons.cancel);
+                      this.customSearchBar = TextField(
+                        textInputAction: TextInputAction.go,
+                        decoration: InputDecoration(
+                            border: InputBorder.none,
+                            hintText: "Search character"),
+                        style: TextStyle(color: Colors.white, fontSize: 16),
+                      );
+                    } else {
+                      this.customIcon = Icon(Icons.search);
+                      this.customSearchBar = titleText;
+                    }
+                  });
+                })
+          ],
           backgroundColor: Colors.amber,
         ),
         body: Container(),
