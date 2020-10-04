@@ -10,8 +10,21 @@ class SWMain extends StatefulWidget {
 }
 
 class _SWMainState extends State<SWMain> {
+  Icon customIcon = Icon(Icons.search);
+  static Text titleText = Text("Star Wars API");
+  Widget customSearchBar = titleText;
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: customSearchBar,
+          actions: <Widget>[IconButton(icon: customIcon, onPressed: () {})],
+          backgroundColor: Colors.amber,
+        ),
+        body: Container(),
+      ),
+    );
   }
 }
