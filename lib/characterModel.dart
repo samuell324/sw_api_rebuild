@@ -21,9 +21,9 @@ class Character {
       name: json['name'] as String,
       height: json['height'] as String,
       mass: json['mass'] as String,
-      hairColor: json['hairColor'] as String,
-      skinColor: json['skinColor'] as String,
-      eyeColor: json['eyeColor'] as String,
+      hairColor: json['hair_color'] as String,
+      skinColor: json['skin_color'] as String,
+      eyeColor: json['eye_color'] as String,
       gender: json['gender'] as String,
     );
   }
