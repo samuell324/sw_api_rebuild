@@ -4,21 +4,22 @@ import 'dart:async';
 import 'package:http/http.dart' as http;
 import 'characterModel.dart';
 import 'package:flutter/foundation.dart';
-
+import 'characterList.dart';
 
 void main() {
   runApp(SWMain());
 }
 
 Future<List<Character>> fetchCharacters(http.Client client) async {
-  final response =
-  await client.get('http://swapi.dev/api/people/');
+  final response = await client.get('http://swapi.dev/api/people/');
   return compute(parseCharacter, response.body);
 }
 
 List<Character> parseCharacter(responseBody) {
   final parsed = jsonDecode(responseBody) as Map<String, dynamic>;
-  return parsed["results"].map<Character>((json) => Character.fromJson(json)).toList();
+  return parsed["results"]
+      .map<Character>((json) => Character.fromJson(json))
+      .toList();
 }
 
 class SWMain extends StatefulWidget {
