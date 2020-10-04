@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'characterModel.dart';
+import 'secondPage.dart';
 
 class CharacterList extends StatelessWidget {
   final List<Character> character;
@@ -21,7 +22,13 @@ class CharacterList extends StatelessWidget {
                 character[index].name,
                 style: TextStyle(fontSize: 18, color: Colors.black),
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(
+                    builder: (context) => SecondPage(), settings: RouteSettings(
+                  arguments: character[index]
+                )
+                ));
+              },
             ),
           ),
         );
