@@ -61,7 +61,15 @@ class _SWMainState extends State<SWMain> {
           ],
           backgroundColor: Colors.amber,
         ),
-        body: Container(),
+        body: FutureBuilder<List<Character>>(
+          future: fetchCharacters(http.Client()),
+          builder: (context, snapshot) {
+            if (snapshot.hasError) print(snapshot.error);
+            return snapshot.hasData
+                ? CharacterList(character: snapshot.data)
+                : Center(child: CircularProgressIndicator());
+          },
+        ),
       ),
     );
   }
