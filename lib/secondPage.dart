@@ -7,7 +7,15 @@ class SecondPage extends StatelessWidget {
     final Character character = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Character info"),
+        title:
+        Text("Character info"),
+        textTheme: ThemeData.light().textTheme.copyWith(
+          title: TextStyle (
+            fontSize: 18,
+            fontWeight: FontWeight.bold
+          )
+        ),
+
         backgroundColor: Colors.amber,
       ),
       body: Center(
