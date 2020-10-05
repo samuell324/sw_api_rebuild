@@ -31,7 +31,7 @@ class _SWMainState extends State<SWMain> {
   Icon customIcon = Icon(Icons.search);
   static Text titleText = Text("Star Wars API");
   Widget customSearchBar = titleText;
-  var search = List<Character>();
+  var searchList = List<Character>();
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +53,7 @@ class _SWMainState extends State<SWMain> {
                             hintText: "Search character"),
                         onChanged: (text) {
                           text = text.toLowerCase();
-                          search = search.where((search) {
+                          searchList = searchList.where((search) {
                             var charTitle = search.name.toLowerCase();
                             return charTitle.contains(text);
                           }).toList();
@@ -74,7 +74,7 @@ class _SWMainState extends State<SWMain> {
           builder: (context, snapshot) {
             if (snapshot.hasError) print(snapshot.error);
             return snapshot.hasData
-                ? CharacterList(character: snapshot.data)
+                ? CharacterList(character: snapshot.data,)
                 : Center(child: CircularProgressIndicator());
           },
         ),

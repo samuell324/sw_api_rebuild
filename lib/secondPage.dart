@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'infoWidget.dart';
 
-class SecondPage extends StatelessWidget {
+class CharacterInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

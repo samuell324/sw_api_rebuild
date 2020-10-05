@@ -4,7 +4,7 @@ import 'secondPage.dart';
 
 class CharacterList extends StatelessWidget {
   final List<Character> character;
-  CharacterList({Key key, this.character}) : super(key: key);
+  CharacterList( {Key key, this.character}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +22,10 @@ class CharacterList extends StatelessWidget {
                 style: TextStyle(fontSize: 18, color: Colors.black),
               ),
               onTap: () {
-                print('Print character $character');
-                    Navigator.push(
+                Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => SecondPage(),
+                        builder: (context) => CharacterInfo(),
                         settings: RouteSettings(arguments: character[index])));
               },
             ),
