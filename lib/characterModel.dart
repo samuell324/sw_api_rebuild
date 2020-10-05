@@ -8,23 +8,33 @@ class Character {
   final String gender;
 
   Character(
-      {this.name,
+      this.name,
       this.height,
       this.mass,
       this.hairColor,
       this.skinColor,
       this.eyeColor,
-      this.gender});
+      this.gender);
 
-  factory Character.fromJson(Map<String, dynamic> json) {
-    return Character(
-      name: json['name'] as String,
-      height: json['height'] as String,
-      mass: json['mass'] as String,
-      hairColor: json['hair_color'] as String,
-      skinColor: json['skin_color'] as String,
-      eyeColor: json['eye_color'] as String,
-      gender: json['gender'] as String,
-    );
+  Character.fromJson(Map<String, dynamic> json) :
+      name = json['name'],
+      height = json['height'],
+      mass = json['mass'],
+      hairColor = json['hair_color'],
+      skinColor = json['skin_color'],
+      eyeColor = json['eye_color'],
+      gender = json['gender'];
+
+  Map<String, dynamic> toJson() =>
+      {
+        'name': name,
+        'height': height,
+        'mass': mass,
+        'hair_color': hairColor,
+        'skin_color': skinColor,
+        'eye_color': eyeColor,
+        'gender': gender
+      };
+
   }
-}
+
