@@ -74,7 +74,7 @@ class _SWMainState extends State<SWMain> {
           builder: (context, snapshot) {
             if (snapshot.hasError) print(snapshot.error);
             return snapshot.hasData
-                ? CharacterList(character: snapshot.data,)
+                ? CharacterList(characterList: snapshot.data,)
                 : Center(child: CircularProgressIndicator());
           },
         ),

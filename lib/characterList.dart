@@ -3,13 +3,16 @@ import 'characterModel.dart';
 import 'secondPage.dart';
 
 class CharacterList extends StatelessWidget {
-  final List<Character> character;
-  CharacterList( {Key key, this.character}) : super(key: key);
+  CharacterList ({Key key, List<Character> characterList})
+      : _characterList = characterList,
+        super(key: key);
+
+  final List<Character> _characterList;
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: character.length,
+      itemCount: _characterList.length,
       itemBuilder: (context, index) {
         return Card(
           elevation: 5,
@@ -18,7 +21,7 @@ class CharacterList extends StatelessWidget {
             padding: EdgeInsets.all(15),
             child: ListTile(
               title: Text(
-                character[index].name,
+                _characterList[index].name,
                 style: TextStyle(fontSize: 18, color: Colors.black),
               ),
               onTap: () {
@@ -26,7 +29,7 @@ class CharacterList extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) => CharacterInfo(),
-                        settings: RouteSettings(arguments: character[index])));
+                        settings: RouteSettings(arguments: _characterList[index])));
               },
             ),
           ),
@@ -35,3 +38,4 @@ class CharacterList extends StatelessWidget {
     );
   }
 }
+
